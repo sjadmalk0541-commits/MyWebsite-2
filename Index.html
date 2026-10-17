@@ -1,27 +1,327 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وب‌سایت من</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+<title>سجاد | وب‌سایت من</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            margin: 0;
-            font-family: Tahoma, Arial, sans-serif;
-            background: linear-gradient(135deg, #101827, #164e63);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+:root {
+    --cyan: #55e6ff;
+    --purple: #a78bfa;
+    --bg: #080b18;
+}
 
-        header {
-            padding: 22px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.25);
-            border-bottom: 1px solid #38
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--bg);
+    color: #f8fafc;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 15% 20%, #39266c80, transparent 45%),
+        radial-gradient(ellipse at 85% 75%, #07598570, transparent 45%);
+    animation: glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+nav {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--cyan);
+    text-shadow: 0 0 20px #55e6ff70;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+.hero {
+    width: min(1000px, 90%);
+    margin: 65px auto 80px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid #55e6ff50;
+    background: #55e6ff10;
+    color: var(--cyan);
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 68px);
+    line-height: 1.6;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #55e6ff, #a78bfa, #f0abfc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.description {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #aab6ce;
+    font-size: 16px;
+    line-height: 2.3;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    text-decoration: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #07111f;
+    background: linear-gradient(90deg, #55e6ff, #a78bfa);
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 30px #55e6ff20;
+}
+
+.btn-secondary {
+    color: white;
+    border: 1px solid #ffffff30;
+    background: #ffffff08;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.15);
+}
+
+.section {
+    width: min(1000px, 90%);
+    margin: 0 auto 90px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 27px;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid #ffffff15;
+    background: linear-gradient(145deg, #ffffff0d, #ffffff04);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #55e6ff70;
+    box-shadow: 0 15px 45px #00000030;
+}
+
+.icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.card p {
+    color: #aab6ce;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.contact {
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 22px;
+    border: 1px solid #ffffff15;
+    background: #ffffff06;
+}
+
+.contact p {
+    color: #aab6ce;
+    line-height: 2.2;
+    margin: 15px auto 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    color: #8490a8;
+    border-top: 1px solid #ffffff10;
+    font-size: 12px;
+    line-height: 2;
+}
+
+@media (max-width: 500px) {
+    nav { padding: 20px 0; }
+    .hero { margin-top: 45px; }
+    .description { font-size: 14px; }
+    .card { padding: 23px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SAJAD.DEV</div>
+    <a href="#about">درباره سایت ↓</a>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="badge">✦ خوش اومدی به دنیای من</div>
+
+        <h1>
+            ایده‌های بزرگ،<br>
+            <span class="gradient">شروع‌های بزرگ‌تر</span>
+        </h1>
+
+        <p class="description">
+            اینجا گوشه‌ای از دنیای دیجیتال منه؛
+            جایی برای یادگیری، خلاقیت و ساختن چیزهای جدید.
+            این فقط شروع ماجراست!
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn btn-primary">
+                کشف بیشتر ✨
+            </a>
+
+            <button class="btn btn-secondary" onclick="welcome()">
+                یه سورپرایز 🎁
+            </button>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="section-title">
+            <span class="gradient">درباره این پروژه</span>
+        </h2>
+
+        <div class="cards">
+            <article class="card">
+                <div class="icon">💻</div>
+                <h3>طراحی وب</h3>
+                <p>
+                    یک صفحه مدرن با HTML و CSS
+                    که برای صفحه‌های کوچک و بزرگ طراحی شده.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="icon">⚡</div>
+                <h3>سریع و سبک</h3>
+                <p>
+                    بدون نیاز به کتابخانه خارجی؛
+                    همه‌چیز داخل همین فایل قرار دارد.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="icon">🚀</div>
+                <h3>شروع یادگیری</h3>
+                <p>
+                    این پروژه فرصتی برای یادگیری برنامه‌نویسی
+                    و ساختن وب‌سایت‌های جذاب‌تر است.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="contact">
+            <h2>این تازه شروعشه! 🌌</h2>
+            <p>
+                با تمرین و یادگیری می‌شه ایده‌ها رو
+                به پروژه‌های واقعی تبدیل کرد.
+            </p>
+            <button class="btn btn-primary" onclick="welcome()">
+                کلیک کن!
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    ساخته‌شده با ❤️ و خلاقیت<br>
+    © 2026 — Sajad
+</footer>
+
+<script>
+function welcome() {
+    alert("سلام رفیق! 👋 به سایت من خوش اومدی.");
+}
+</script>
+
+</body>
+</html>
